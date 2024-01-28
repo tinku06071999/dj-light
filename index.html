@@ -14,49 +14,56 @@
     <button id="start">Start</button>
   </body>
   <script>
-   //  const colorArray = ['green', 'red', 'white', 'blue', 'orange', 'pink', 'purple',
-   //  'yellow', 'brown', 'black', 'cyan', 'magenta', 'violet', 'teal',
-   //  'maroon', 'navy', 'olive', 'skyblue', 'lime', 'turquoise', 'indigo',
-   //  'coral', 'gold', 'silver', 'orchid', 'salmon', 'tan', 'ivory',
-   //  'lavender', 'peru', 'plum', 'thistle', 'wheat', 'crimson', 'sienna',
-   //  'moccasin', 'cornflowerblue', 'darkorange', 'darkseagreen', 'forestgreen',
-   //  'indianred', 'lightcoral', 'lightpink', 'lightsalmon', 'mediumorchid',
-   //  'mediumvioletred', 'olivedrab', 'palevioletred', 'rosybrown', 'sandybrown',
-   //  'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond',
-   //  'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'cornsilk', 'crimson', 'darkcyan',
-   //  'darkgoldenrod', 'darkgray', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorchid',
-   //  'darkred', 'darksalmon', 'darkslateblue', 'darkslategray', 'darkturquoise', 'darkviolet',
-   //  'deeppink', 'deepskyblue', 'dimgray', 'dodgerblue', 'firebrick', 'floralwhite', 'fuchsia',
-   //  'gainsboro', 'ghostwhite', 'goldenrod', 'greenyellow', 'honeydew', 'hotpink', 'indianred'
-   // ]
+    // let intervalId;
+//     const colorArray = ['green','red','white','blue','orange','pink','purple'];
+// //     const colorArray = ['green', 'red', 'white', 'blue', 'orange', 'pink', 'purple',
+// //     'yellow', 'brown', 'black', 'cyan', 'magenta', 'violet', 'teal',
+// //     'maroon', 'navy', 'olive', 'skyblue', 'lime', 'turquoise', 'indigo',
+// //     'coral', 'gold', 'silver', 'orchid', 'salmon', 'tan', 'ivory',
+// //     'lavender', 'peru', 'plum', 'thistle', 'wheat', 'crimson', 'sienna',
+// //     'moccasin', 'cornflowerblue', 'darkorange', 'darkseagreen', 'forestgreen',
+// //     'indianred', 'lightcoral', 'lightpink', 'lightsalmon', 'mediumorchid',
+// //     'mediumvioletred', 'olivedrab', 'palevioletred', 'rosybrown', 'sandybrown',
+// //     'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond',
+// //     'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'cornsilk', 'crimson', 'darkcyan',
+// //     'darkgoldenrod', 'darkgray', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorchid',
+// //     'darkred', 'darksalmon', 'darkslateblue', 'darkslategray', 'darkturquoise', 'darkviolet',
+// //     'deeppink', 'deepskyblue', 'dimgray', 'dodgerblue', 'firebrick', 'floralwhite', 'fuchsia',
+// //     'gainsboro', 'ghostwhite', 'goldenrod', 'greenyellow', 'honeydew', 'hotpink', 'indianred'
+// //    ]
+
+
     const body = document.querySelector('body');
     const startbutton = document.querySelector('#start');
     const stopbutton = document.querySelector('#stop');
-    // let index = 0;
+//     let index = 0;
 
-   // function startChange(colorArray){
-   //      console.log("startted");
-   //      body.style.backgroundColor = colorArray[index];
-   //      index++;
-   //      if(index >= colorArray.length){
-   //          index = 0;
-   //      }
+//    function startChange(colorArray){
+//         console.log("startted");
+//         body.style.backgroundColor = colorArray[index];
+//         index++;
+//         if(index >= colorArray.length){
+//             index = 0;
+//         }
 
-   //  }
+//     }
    
-   //  function startInterval(){
-   //      console.log("startedd");
-   //      intervalId = setInterval(startChange,0,colorArray);
-   //  }
-   //  function stopInterval(){
-   //      console.log("Stopped");
-    //     clearInterval(intervalId);
-    // }
+//     function startInterval(){
+//         console.log("startedd");
+//         intervalId = setInterval(startChange,0,colorArray);
+//     }
+//     function stopInterval(){
+//         console.log("Stopped");
+//         clearInterval(intervalId);
+//         intervalId =null;
+//     }
 
-    // startbutton.addEventListener('click',startInterval);
-    // stopbutton.addEventListener('click',stopInterval);
+//     startbutton.addEventListener('click',startInterval);
+//     stopbutton.addEventListener('click',stopInterval);
 
-    // now lets take an array of hex code of color and randmly genarete function
+
+// now lets take an array of hex code of color and randmly genarete function
+let intervalId;
 
 const randomColor = function(){
     const hex = '0123456789ABCDEF';
@@ -73,8 +80,10 @@ function startChange(){
    
     function startInterval(){
         console.log("startedd");
-        intervalId = setInterval(startChange,0,randomColor);
-    }
+       if(!intervalId) {
+            intervalId = setInterval(startChange,0,randomColor);
+     }  
+}
     function stopInterval(){
         console.log("Stopped");
         clearInterval(intervalId);
@@ -82,7 +91,5 @@ function startChange(){
     }
    startbutton.addEventListener('click',startInterval);
    stopbutton.addEventListener('click',stopInterval);
- 
-    
   </script>
 </html>
