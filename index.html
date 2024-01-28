@@ -14,8 +14,6 @@
     <button id="start">Start</button>
   </body>
   <script>
-    let intervalId;
-    // const colorArray = ['green','red','white','blue','orange','pink','purple'];
     const colorArray = ['green', 'red', 'white', 'blue', 'orange', 'pink', 'purple',
     'yellow', 'brown', 'black', 'cyan', 'magenta', 'violet', 'teal',
     'maroon', 'navy', 'olive', 'skyblue', 'lime', 'turquoise', 'indigo',
@@ -36,7 +34,7 @@
     const stopbutton = document.querySelector('#stop');
     let index = 0;
 
-   intervalId = function startChange(colorArray){
+   function startChange(colorArray){
         console.log("startted");
         body.style.backgroundColor = colorArray[index];
         index++;
@@ -48,7 +46,7 @@
    
     function startInterval(){
         console.log("startedd");
-        intervalId = setInterval(intervalId,0,colorArray);
+        intervalId = setInterval(startChange,0,colorArray);
     }
     function stopInterval(){
         console.log("Stopped");
